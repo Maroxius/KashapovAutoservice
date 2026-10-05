@@ -23,6 +23,8 @@ namespace KashapovAutoservice
         public ServicePage()
         {
             InitializeComponent();
+            var currentServices = KashapovAutoserviceEntities.GetContext().Service.ToList();
+            ServiceListView.ItemsSource = currentServices;
         }
 
         private void Button_Click(object sender, RoutedEventArgs e)
