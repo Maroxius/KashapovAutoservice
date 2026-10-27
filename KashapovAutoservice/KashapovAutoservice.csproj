@@ -68,56 +68,59 @@
       <DependentUpon>AddEditPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Client.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ClientService.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="DocumentByService.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Gender.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="KashapovModel.Context.cs">
+    <Compile Include="KashapovAutoserviceModel.Context.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KashapovModel.Context.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.Context.tt</DependentUpon>
     </Compile>
-    <Compile Include="KashapovModel.cs">
+    <Compile Include="KashapovAutoserviceModel.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
-    <Compile Include="KashapovModel.Designer.cs">
+    <Compile Include="KashapovAutoserviceModel.Designer.cs">
       <AutoGen>True</AutoGen>
       <DesignTime>True</DesignTime>
-      <DependentUpon>KashapovModel.edmx</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.edmx</DependentUpon>
     </Compile>
     <Compile Include="Manager.cs" />
     <Compile Include="Manufacturer.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Product.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductPhoto.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ProductSale.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="Service.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Compile Include="ServicePage.xaml.cs">
       <DependentUpon>ServicePage.xaml</DependentUpon>
     </Compile>
     <Compile Include="ServicePhoto.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
+    </Compile>
+    <Compile Include="SignUpPage.xaml.cs">
+      <DependentUpon>SignUpPage.xaml</DependentUpon>
     </Compile>
     <Compile Include="Tag.cs">
-      <DependentUpon>KashapovModel.tt</DependentUpon>
+      <DependentUpon>KashapovAutoserviceModel.tt</DependentUpon>
     </Compile>
     <Page Include="AddEditPage.xaml">
       <SubType>Designer</SubType>
@@ -136,6 +139,10 @@
       <SubType>Code</SubType>
     </Compile>
     <Page Include="ServicePage.xaml">
+      <SubType>Designer</SubType>
+      <Generator>MSBuild:Compile</Generator>
+    </Page>
+    <Page Include="SignUpPage.xaml">
       <SubType>Designer</SubType>
       <Generator>MSBuild:Compile</Generator>
     </Page>
@@ -158,12 +165,12 @@
       <Generator>ResXFileCodeGenerator</Generator>
       <LastGenOutput>Resources.Designer.cs</LastGenOutput>
     </EmbeddedResource>
-    <EntityDeploy Include="KashapovModel.edmx">
+    <EntityDeploy Include="KashapovAutoserviceModel.edmx">
       <Generator>EntityModelCodeGenerator</Generator>
-      <LastGenOutput>KashapovModel.Designer.cs</LastGenOutput>
+      <LastGenOutput>KashapovAutoserviceModel.Designer.cs</LastGenOutput>
     </EntityDeploy>
-    <None Include="KashapovModel.edmx.diagram">
-      <DependentUpon>KashapovModel.edmx</DependentUpon>
+    <None Include="KashapovAutoserviceModel.edmx.diagram">
+      <DependentUpon>KashapovAutoserviceModel.edmx</DependentUpon>
     </None>
     <None Include="packages.config" />
     <None Include="Properties\Settings.settings">
@@ -199,19 +206,21 @@
     <Resource Include="Услуги автосервиса\Шиномонтаж.jpg" />
     <Resource Include="Услуги автосервиса\Электрика.png" />
     <Resource Include="Images\picture.png" />
-    <Content Include="KashapovModel.Context.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <LastGenOutput>KashapovModel.Context.cs</LastGenOutput>
-      <DependentUpon>KashapovModel.edmx</DependentUpon>
-    </Content>
-    <Content Include="KashapovModel.tt">
-      <Generator>TextTemplatingFileGenerator</Generator>
-      <DependentUpon>KashapovModel.edmx</DependentUpon>
-      <LastGenOutput>KashapovModel.cs</LastGenOutput>
-    </Content>
   </ItemGroup>
   <ItemGroup>
     <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <ItemGroup>
+    <Content Include="KashapovAutoserviceModel.Context.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KashapovAutoserviceModel.edmx</DependentUpon>
+      <LastGenOutput>KashapovAutoserviceModel.Context.cs</LastGenOutput>
+    </Content>
+    <Content Include="KashapovAutoserviceModel.tt">
+      <Generator>TextTemplatingFileGenerator</Generator>
+      <DependentUpon>KashapovAutoserviceModel.edmx</DependentUpon>
+      <LastGenOutput>KashapovAutoserviceModel.cs</LastGenOutput>
+    </Content>
   </ItemGroup>
   <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
 </Project>

@@ -15,22 +15,19 @@ namespace KashapovAutoservice
     
     public partial class KashapovAutoserviceEntities : DbContext
     {
-        public KashapovAutoserviceEntities()
-            : base("name=KashapovAutoserviceEntities")
-        {
-        }
-
-        // добавлено
+        //added
         private static KashapovAutoserviceEntities _context;
-
         public static KashapovAutoserviceEntities GetContext()
         {
             if (_context == null)
                 _context = new KashapovAutoserviceEntities();
-
             return _context;
         }
-        // добавлено
+        //added
+        public KashapovAutoserviceEntities()
+            : base("name=KashapovAutoserviceEntities")
+        {
+        }
     
         protected override void OnModelCreating(DbModelBuilder modelBuilder)
         {
