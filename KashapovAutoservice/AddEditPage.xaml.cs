@@ -36,6 +36,13 @@ namespace KashapovAutoservice
             if (string.IsNullOrWhiteSpace(_currentService.Title))
                 errors.AppendLine("Укажите название услуги");
 
+            var allServices = KashapovAutoserviceEntities.GetContext().Service.ToList();
+            allServices = allServices.Where(p => (p.Title == _currentService.Title && p.ID != _currentService.ID)).ToList();
+            if (allServices.Count != 0)
+            {
+                errors.AppendLine("Уже существует такая услуга");
+            }
+
             if (_currentService.Cost == 0)
                 errors.AppendLine("Укажите стоимость услуги");
 
@@ -45,8 +52,8 @@ namespace KashapovAutoservice
             if (_currentService.Duration == 0)
                 errors.AppendLine("Укажите длительность услуги");
 
-            if (_currentService.Duration > 240)
-                errors.AppendLine("Длительность не может быть больше 240 минут");
+            if (_currentService.Duration > 240 || _currentService.Duration < 0)
+                errors.AppendLine("Длительность не может быть больше 240 минут или меньше 0");
 
             if (errors.Length > 0)
             {
@@ -56,7 +63,6 @@ namespace KashapovAutoservice
 
             if (_currentService.ID == 0)
                 KashapovAutoserviceEntities.GetContext().Service.Add(_currentService);
-
             try
             {
                 KashapovAutoserviceEntities.GetContext().SaveChanges();

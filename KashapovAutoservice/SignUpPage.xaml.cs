@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
+using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Windows;
 using System.Windows.Controls;
@@ -42,6 +43,8 @@ namespace KashapovAutoservice
                 errors.AppendLine("Укажите дату услуги");
             if (TBStart.Text == "")
                 errors.AppendLine("Укажите время начала услуги");
+            if (TBEnd.Text == "")
+                errors.AppendLine("Укажите корректное время начала услуги");
             if (errors.Length > 0)
             {
                 MessageBox.Show(errors.ToString());
@@ -70,7 +73,8 @@ namespace KashapovAutoservice
             if (s.Contains(':'))
             {
                 string[] start = s.Split(new char[] { ':' });
-                if (start[0].Length > 0 && start[0].Length <= 2 && start[1].Length == 2 
+                if (start.Length == 2 &&
+                    start[0].Length > 0 && start[0].Length <= 2 && start[1].Length == 2 
                     && Convert.ToInt32(start[0]) >= 0 && Convert.ToInt32(start[0]) <= 23 
                     && Convert.ToInt32(start[1]) >= 0 && Convert.ToInt32(start[1]) <= 59)
                 {
@@ -94,6 +98,18 @@ namespace KashapovAutoservice
             {
                 TBEnd.Text = "";
             }
+        }
+
+        // для ограничения ввода текста в TBStart
+        private static bool AllowedForTB(string text)
+        {
+            Regex regex = new Regex(@"^[0-9:]+$");
+            return regex.IsMatch(text);
+        }
+
+        private void TBStart_PreviewTextInput(object sender, TextCompositionEventArgs e)
+        {
+            e.Handled = !AllowedForTB(e.Text);
         }
     }
 }
